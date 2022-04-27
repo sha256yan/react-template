@@ -4,16 +4,24 @@ import { Navbar, Page } from "./ComponentFiller";
 
 
 
-
+const DataContext = React.createContext({});
 
 
 function App() {
+    const [currentId, setCurrentId] = React.useState(0);
+    const newId = () => {
+        let newId = currentId;
+        setCurrentId(currentId + 1);
+        return newId;
+    }
     return (
         <Router>
-            <Navbar/>
-            <Page/>
-            <Routes>
-            </Routes>
+            <DataContext.Provider value={{newId}}>
+                <Navbar/>
+                <Page/>
+                <Routes>
+                </Routes>
+            </DataContext.Provider>
         </Router>
     )
 }
@@ -29,4 +37,4 @@ function App() {
                 </Routes>
 */
 
-export {App};
+export {App, DataContext};

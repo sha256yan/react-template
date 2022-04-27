@@ -3,7 +3,6 @@ import { Navbar, Container, Nav, NavDropdown, Row } from "react-bootstrap";
 
 
 function CustomNavbar(props) {
-    console.log(props.navItems);
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
