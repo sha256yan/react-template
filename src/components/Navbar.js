@@ -1,24 +1,26 @@
 import { Link } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Row } from "react-bootstrap";
 
 
 function CustomNavbar(props) {
     console.log(props.navItems);
     return (
-        <Navbar bg="primary" expand="lg" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        {props.navItems.map(item => 
-                            <Nav.Link href={`/${item}`}>{item}</Nav.Link>
-                        )}
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+            <Navbar.Brand href="#home">
+                {props.navTitle}
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
+                    {props.navItems.map(item => <Nav.Link href={`/${item}`}>{item}</Nav.Link>)}
+                </Nav>
+                <Nav>
+                    {props.navButtons.map(Button => <Nav.Link>{Button}</Nav.Link>)}
+                </Nav>
+            </Navbar.Collapse>
+        </Container>
         </Navbar>
-
     );
 }
 
@@ -30,6 +32,11 @@ function CustomNavbar(props) {
                     <Nav.Link href={`/${item}`}>{item}</Nav.Link>
                 )}
                 </Nav>
+*/
+
+
+
+/*
 */
 
 export {CustomNavbar};

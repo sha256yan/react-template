@@ -1,17 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CustomNavbar } from "./components/Navbar"
+import { Navbar, Page } from "./ComponentFiller";
 
 
 
-const navItems = ["Test1", "Test2", "Test3"]
+
+
 
 function App() {
     return (
         <Router>
-            <CustomNavbar navItems={navItems}></CustomNavbar>
+            <Navbar/>
+            <Page/>
             <Routes>
-                
             </Routes>
         </Router>
     )
