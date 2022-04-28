@@ -3,7 +3,6 @@ import { Container, Row, Image} from "react-bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 
 import pic from "../monke.jpeg"
-import { DataContext } from "../App";
 
 
 
