@@ -1,9 +1,11 @@
 import React from "react";
 import { CustomNavbar } from "./components/Navbar"
-import { CustomForm, EmailGroup, PasswordGroup } from "./components/Form";
-import { CustomModal } from "./components/Modal";
+import { CustomForm, EmailGroup, PasswordGroup, PasswordConfirmGroup } from "./components/Form";
+import { AuthButton } from "./components/AuthButtons";
 import { Page, Post } from "./components/Page"
 import pic from "./monke.jpeg"
+
+import { AuthProvider } from "./hooks/AuthContext";
 
 
 
@@ -20,32 +22,41 @@ const navTitle = "Test Title";
 
 const Email = () => <EmailGroup label="Email" placeholder="Enter your email..." comment="We will never give anyone else access to your email."/>;
 const Password = () => <PasswordGroup label="Password" placeholder="Enter your password"/>;
-const ConfirmPassword = () => <PasswordGroup label="Confirm Password" placeholder="Re-enter your password"/>;
-const signUpChildren = [<Email/>, <Password/>, <ConfirmPassword/>];
+const ConfirmPassword = () => <PasswordConfirmGroup/>;
+const signUpChildren = [<Email/>, <ConfirmPassword/>];
 const signInChildren = [<Email/>, <Password/>];
 
 
 const signUpProp = {
     buttonLabel: "Sign Up",
-    title: "Sign up form",
-    body: <CustomForm children={signUpChildren}/>,
+    modalTitle: "Sign up form",
+    modalBody: <CustomForm children={signUpChildren}/>,
 }
 
 
 const signInProp = {
     buttonLabel: "Sign In",
-    title: "Sign in form",
-    body: <CustomForm children={signInChildren}/>,
+    modalTitle: "Sign in form",
+    modalBody: <CustomForm children={signInChildren}/>,
+}
+
+
+const signOutProp = {
+    buttonLabel: "Sign out"
 }
 
 
 
 //COMPONENT DECLERATIONS:
 
-const SignUpModal = () => <CustomModal props={signUpProp}/>;
-const SignInModal = () => <CustomModal props={signInProp}/>;
-const navButtons = [<SignUpModal/>, <SignInModal/>]
-const Navbar = () => <CustomNavbar navItems={navItems} navTitle={navTitle} navButtons={navButtons}/>;
+const SignUpButton = () => <AuthButton params={signUpProp}/>;
+const SignInButton = () => <AuthButton params={signInProp}/>;
+const SignOutButton = () => <AuthButton params={signOutProp}/>;
+const getNavButtons = (emailAuth) => emailAuth ? <SignOutButton/> : [<SignUpButton/>, <SignInButton/>]
+const Navbar = () => 
+    <AuthProvider>
+        <CustomNavbar navItems={navItems} navTitle={navTitle} getNavButtons={getNavButtons}/>
+    </AuthProvider>;
 
 
 
@@ -108,4 +119,4 @@ const PostsPage = () => <Page children={pageChildren}/>;
 
 
 
-export {Navbar, SignUpModal, SignInModal, PostsPage};
+export {Navbar, SignUpButton, SignInButton, PostsPage};

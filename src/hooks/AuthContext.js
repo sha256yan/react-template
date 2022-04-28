@@ -1,29 +1,35 @@
 import React, {useState, createContext, useContext} from "react";
 
-const AuthContext = createContext({});
-
+const getAuthContext = createContext({});
+const setAuthContext = createContext({});
 
 function AuthProvider(props) {
-    const [emailAuth, setEmailAuth] = useState();
-    const [web3Auth, setWeb3Auth] = useState();
+    const [emailAuth, setEmailAuth] = useState(false);
+    const [web3Auth, setWeb3Auth] = useState(false);
 
     return (
-        <AuthContext.Provider value={{emailAuth, setEmailAuth, web3Auth, setWeb3Auth}}>
-            {props.children}
-        </AuthContext.Provider>
+        <setAuthContext.Provider value={{setEmailAuth, setWeb3Auth}}>
+            <getAuthContext.Provider value={{emailAuth, web3Auth}}>
+                {props.children}
+            </getAuthContext.Provider>
+        </setAuthContext.Provider>
     )
 }
 
 
 
-function useAuth() {
-    return useContext(AuthContext);
+function useGetAuth() {
+    return useContext(getAuthContext);
+}
+
+function useSetAuth() {
+    return useContext(setAuthContext);
 }
 
 
 
 
-export { AuthProvider, useAuth}
+export { AuthProvider, useGetAuth, useSetAuth}
 
 
 

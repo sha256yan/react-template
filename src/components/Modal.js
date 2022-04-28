@@ -1,5 +1,9 @@
 import React from "react";
-import { Container, Modal, Button} from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+
+
+
+
 
 
 
@@ -13,19 +17,9 @@ import { Container, Modal, Button} from "react-bootstrap";
         positiveResponse    positive response button label
 */
 
-function CustomModal(props) {
-    const {buttonLabel, title, body, positiveResponse, negativeResponse} = props.props;
-    const[isOpen, setIsOpen] = React.useState(false);
-
-    const handleOpen = () => setIsOpen(true);
-    const handleClose = () => setIsOpen(false);
-
+function CustomModal({ title, body, isOpen, handleClose }) {
     return (
         <>
-          <Button variant="dark" onClick={handleOpen}>
-            {buttonLabel}
-          </Button>
-    
           <Modal
             show={isOpen}
             onHide={handleClose}
@@ -48,11 +42,6 @@ function CustomModal(props) {
 
 }
 
-
-
-function FormModal(props) {
-
-}
 
 
 

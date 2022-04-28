@@ -6,8 +6,8 @@ import "bootstrap/dist/js/bootstrap.bundle";
 
 
 
-function CollapseButton(props) {
-    const {postId, showing, handleCollapseButtonClick, text, showingButtonLabel, notShowingButtonLabel} = props.params;
+function PostCollapse(props) {
+    const {postId, showing, handlePostCollapseClick, text, showingButtonLabel, notShowingButtonLabel} = props.params;
 
     return (
         <Container className="p-3">
@@ -17,7 +17,7 @@ function CollapseButton(props) {
                 data-bs-target={`#${postId}`}
                 aria-expanded={showing}
                 aria-controls={postId}
-                onClick={handleCollapseButtonClick}
+                onClick={handlePostCollapseClick}
                 >
                     
                 {showing ? showingButtonLabel : notShowingButtonLabel}
@@ -38,14 +38,14 @@ function Post(props) {
     const { userName, title, text, collapsedParams, profilePicSrc } = props.params;
     //profile pic - text - like/comment
     const [showing, setShowing] = React.useState(false);
-    const handleCollapseButtonClick = () => {
+    const handlePostCollapseClick = () => {
         setShowing(!showing)
     }
 
     /*
         Props: userName, title, text
     */
-   const statefulCollapseParams = Object.assign({showing, handleCollapseButtonClick}, collapsedParams);
+   const statefulCollapseParams = Object.assign({showing, handlePostCollapseClick}, collapsedParams);
 
     return (
         <Container className="p-3 mb-3 border justify-content-start">
@@ -62,7 +62,7 @@ function Post(props) {
                     </div>
                 </div>
             </Row>
-            <CollapseButton params={statefulCollapseParams}/>
+            <PostCollapse params={statefulCollapseParams}/>
 
 
         </Container>
