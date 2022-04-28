@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar, Page } from "./ComponentFiller";
+import { Navbar, PostsPage } from "./ComponentFiller";
 
 
 
@@ -10,7 +10,7 @@ function App() {
     return (
         <Router>
             <Navbar/>
-            <Page/>
+            <PostsPage/>
             <Routes>
             </Routes>
         </Router>

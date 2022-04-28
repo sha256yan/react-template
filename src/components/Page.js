@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Container, Row, Image} from "react-bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 
-import pic from "../monke.jpeg"
+
 
 
 
@@ -35,6 +35,7 @@ function CollapseButton(props) {
 
 
 function Post(props) {
+    const { userName, title, text, collapsedParams, profilePicSrc } = props.params;
     //profile pic - text - like/comment
     const [showing, setShowing] = React.useState(false);
     const handleCollapseButtonClick = () => {
@@ -44,20 +45,20 @@ function Post(props) {
     /*
         Props: userName, title, text
     */
-   const statefulCollapseParams = Object.assign({showing, handleCollapseButtonClick}, props.collapseParams);
+   const statefulCollapseParams = Object.assign({showing, handleCollapseButtonClick}, collapsedParams);
 
     return (
         <Container className="p-3 mb-3 border justify-content-start">
             <Row>
                 <Container fluid className="col-2 justify-content-center border-right">
-                    <Image src={pic} roundedCircle className="mw-100"/>
+                    <Image src={profilePicSrc} roundedCircle className="mw-100"/>
                     <div className="text-center">
-                        {props.userName}
+                        {userName}
                     </div>
                 </Container>
                 <div className="col-10 border-bottom">
                     <div className="text-wrap">
-                        {props.title}
+                        {title}
                     </div>
                 </div>
             </Row>
@@ -69,45 +70,18 @@ function Post(props) {
 }
 
 
-const text1 = "test text"
-const text2 = "bruh how does this work lmao bruh how does this work lmao bruh how doe \
-does this work lmao bruh how does this work lmao bru bruh how does this work lmao bruh \
-how does this work lmao bruh how does this work lmao bruh how does this work lmao bruh \
-how does this work lmao bruh how does this work lmao bru bruh how does this work lmao bruh\
- how does this work lmao bruh how does this work lmao bruh how does this work lmao bruh how\
-  does this work lmao bruh how does this work lmao bru \
-"
 
-const title = "HEHEHEHEH"
-
-const post1CollapseParams = {
-    postId: "p0",
-    text: text1,
-    showingButtonLabel: "See less...",
-    notShowingButtonLabel: "See more..."
-}
-
-const post2CollapseParams = {
-    postId: "p1",
-    text: text2,
-    showingButtonLabel: "See less...",
-    notShowingButtonLabel: "See more..."
-}
 
 
 //postId needs to be alphabetic string 
 
 function Page(props) {
-    const test = useContext(DataContext);
-
-
 
     return (
         <Container fluid className="container-fluid bg-light justify-content-center p-3">
-            <Post text={text1} title={title} userName="yodel" collapseParams={post1CollapseParams}/>
-            <Post text={text2} title={title} userName="Hewhoremains" collapseParams={post2CollapseParams}/>
+            {props.children}
         </Container>
     )
 }
 
-export { Page };
+export { Page, Post };
