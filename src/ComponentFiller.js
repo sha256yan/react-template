@@ -1,9 +1,8 @@
 import React from "react";
 import { CustomNavbar } from "./components/Navbar"
-import { CustomForm } from "./components/Form";
+import { CustomForm, EmailGroup, PasswordGroup } from "./components/Form";
 import { CustomModal } from "./components/Modal";
 import { Page, Post } from "./components/Page"
-import { Row } from "react-bootstrap";
 import pic from "./monke.jpeg"
 
 
@@ -19,21 +18,24 @@ import pic from "./monke.jpeg"
 const navItems = ["Test1", "Test2", "Test3"]
 const navTitle = "Test Title";
 
+const Email = () => <EmailGroup label="Email" placeholder="Enter your email..." comment="We will never give anyone else access to your email."/>;
+const Password = () => <PasswordGroup label="Password" placeholder="Enter your password"/>;
+const ConfirmPassword = () => <PasswordGroup label="Confirm Password" placeholder="Re-enter your password"/>;
+const signUpChildren = [<Email/>, <Password/>, <ConfirmPassword/>];
+const signInChildren = [<Email/>, <Password/>];
+
+
 const signUpProp = {
     buttonLabel: "Sign Up",
     title: "Sign up form",
-    body: <CustomForm/>,
-    positiveResponse: "Submit",
-    negativeResponse: "Cancel"
+    body: <CustomForm children={signUpChildren}/>,
 }
 
 
 const signInProp = {
     buttonLabel: "Sign In",
     title: "Sign in form",
-    body: <CustomForm/>,
-    positiveResponse: "Submit",
-    negativeResponse: "Cancel"
+    body: <CustomForm children={signInChildren}/>,
 }
 
 
@@ -100,6 +102,9 @@ const PostsPage = () => <Page children={pageChildren}/>;
 
 
 /* ---------------------------------------------------------------------    POSTS PAGE    ----------------------------------------------------------------- */
+
+
+
 
 
 

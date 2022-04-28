@@ -35,9 +35,7 @@ function PasswordGroup(props) {
 function CustomForm(props) {
     return (
         <Form>
-            <EmailGroup label="Email" placeholder="Enter your email..." comment="We will never give anyone else access to your email."/>
-            <PasswordGroup label="Password" placeholder="Enter your password"/>
-            {props.formGroups}
+            {props.children}
             <Button variant="primary" type="submit">
                 Submit
             </Button>
@@ -45,4 +43,4 @@ function CustomForm(props) {
     );
 }
 
-export { CustomForm };
+export { CustomForm, EmailGroup, PasswordGroup };
