@@ -53,7 +53,7 @@ const signOutProp = {
 const SignUpButton = () => <AuthButton params={signUpProp}/>;
 const SignInButton = () => <AuthButton params={signInProp}/>;
 const SignOutButton = () => <AuthButton params={signOutProp}/>;
-const getNavButtons = (emailAuth) => emailAuth ? [<SignOutButton/> , <NavCircleProfile/>]: [<SignUpButton/>, <SignInButton/>]
+const getNavButtons = (emailAuth) => emailAuth ? [<NavCircleProfile/>, <SignOutButton/>]: [<SignUpButton/>, <SignInButton/>]
 const Navbar = () => 
     <AuthProvider>
         <CustomNavbar navItems={navItems} navTitle={navTitle} getNavButtons={getNavButtons}/>
