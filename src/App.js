@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar, PostsPage } from "./ComponentFiller";
+import { Navbar, PostsPage, ProfilePage } from "./ComponentFiller";
 
 
 
@@ -12,7 +12,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route exact path="/" element={<PostsPage />}></Route>
-                <Route exact path="/profile" element={<PostsPage />}></Route>
+                <Route exact path="/profile" element={<ProfilePage />}></Route>
             </Routes>
         </Router>
     )

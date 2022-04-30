@@ -5,7 +5,7 @@ import { CustomModal } from "./Modal";
 
 function AuthButton({ params }) {
     const [isOpen, setIsOpen] = React.useState(false);
-    const {handleOpen, handleClose} = ButtonStateHandler(setIsOpen);
+    const {handleOpen, handleClose} = buttonStateHandler(setIsOpen);
 
 
     return (
@@ -22,7 +22,7 @@ function AuthButton({ params }) {
 
 
 
-function ButtonStateHandler(setIsOpen) {
+function buttonStateHandler(setIsOpen) {
     const handleOpen = () => setIsOpen(true);
     const handleClose = () => setIsOpen(false);
     return {handleOpen, handleClose};

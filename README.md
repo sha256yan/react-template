@@ -17,3 +17,18 @@ Revised goal:
     - SEE WHETHER MATERIAL UI CAN HELP.
 
 
+
+OVERVIEW OF ALL COMPONENTS:
+    - NavCircleProfile
+    - Page
+    - Post
+    - PostCollapse
+    - CustomNavbar
+    - CustomModal
+    - EmailGroup
+    - PasswordGroup
+    - ConfirmPasswordGroup
+    - CustomForm
+    - AuthButton
+
+

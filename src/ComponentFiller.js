@@ -4,6 +4,7 @@ import { CustomForm, EmailGroup, PasswordGroup, PasswordConfirmGroup } from "./c
 import { NavCircleProfile } from "./components/Profile";
 import { AuthButton } from "./components/AuthButtons";
 import { Page, Post } from "./components/Page"
+import { ProfilePageChildren } from "./components/Profile";
 import pic from "./monke.jpeg"
 
 import { AuthProvider } from "./hooks/AuthContext";
@@ -113,11 +114,14 @@ const PostsPage = () => <Page children={pageChildren}/>;
 
 
 
-/* ---------------------------------------------------------------------    POSTS PAGE    ----------------------------------------------------------------- */
+/* ---------------------------------------------------------------------    PROFILE PAGE    ----------------------------------------------------------------- */
+
+const ProfilePage = () => <Page children={<ProfilePageChildren/>}/>
 
 
 
 
 
 
-export {Navbar, SignUpButton, SignInButton, PostsPage};
+
+export {Navbar, SignUpButton, SignInButton, PostsPage, ProfilePage};
