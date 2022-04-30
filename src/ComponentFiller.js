@@ -1,6 +1,7 @@
 import React from "react";
 import { CustomNavbar } from "./components/Navbar"
 import { CustomForm, EmailGroup, PasswordGroup, PasswordConfirmGroup } from "./components/Form";
+import { NavCircleProfile } from "./components/Profile";
 import { AuthButton } from "./components/AuthButtons";
 import { Page, Post } from "./components/Page"
 import pic from "./monke.jpeg"
@@ -52,7 +53,7 @@ const signOutProp = {
 const SignUpButton = () => <AuthButton params={signUpProp}/>;
 const SignInButton = () => <AuthButton params={signInProp}/>;
 const SignOutButton = () => <AuthButton params={signOutProp}/>;
-const getNavButtons = (emailAuth) => emailAuth ? <SignOutButton/> : [<SignUpButton/>, <SignInButton/>]
+const getNavButtons = (emailAuth) => emailAuth ? [<SignOutButton/> , <NavCircleProfile/>]: [<SignUpButton/>, <SignInButton/>]
 const Navbar = () => 
     <AuthProvider>
         <CustomNavbar navItems={navItems} navTitle={navTitle} getNavButtons={getNavButtons}/>

@@ -4,7 +4,7 @@ const getAuthContext = createContext({});
 const setAuthContext = createContext({});
 
 function AuthProvider(props) {
-    const [emailAuth, setEmailAuth] = useState(false);
+    const [emailAuth, setEmailAuth] = useState(true);
     const [web3Auth, setWeb3Auth] = useState(false);
 
     return (

@@ -10,7 +10,7 @@ function AuthButton({ params }) {
 
     return (
         <>
-            <Button variant="dark" onClick={handleOpen}>
+            <Button variant="primary" onClick={handleOpen} className="my-2 col-4 col-lg-4">
                 {params.buttonLabel}
             </Button>
             {

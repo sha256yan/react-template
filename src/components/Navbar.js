@@ -1,6 +1,15 @@
 import { Navbar, Container, Nav} from "react-bootstrap";
 import { useGetAuth } from "../hooks/AuthContext";
 
+function getNavButtonContainerStyle(emailAuth) {
+    switch(emailAuth) {
+        case true:
+            return "col-lg-4 justify-content-center justify-content-lg-around align-items-center";
+        case false:
+            return "col-lg-4 justify-content-lg-evenly align-items-center";
+    }
+}
+
 function CustomNavbar(props) {
     const { emailAuth } = useGetAuth();
 
@@ -15,7 +24,7 @@ function CustomNavbar(props) {
                 <Nav className="me-auto">
                     {props.navItems.map(item => <Nav.Link href={`/${item}`}>{item}</Nav.Link>)}
                 </Nav>
-                <Nav>
+                <Nav className={getNavButtonContainerStyle(emailAuth)}>
                     {props.getNavButtons(emailAuth)}
                 </Nav>
             </Navbar.Collapse>

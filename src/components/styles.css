@@ -1,0 +1,8 @@
+.image-button {
+    height: 50px;
+    transition: .20s ease-in-out;
+}
+
+.image-button:hover {
+    opacity: 0.5;
+}
