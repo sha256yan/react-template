@@ -18,8 +18,8 @@ import { AuthProvider } from "./hooks/AuthContext";
 //SAMPLE DATA:
 
 
-const navItems = ["Test1", "Test2", "Test3"]
-const navTitle = "Test Title";
+const navItems = ["Profile", "Test2", "Test3"]
+const navTitle = "PiGen";
 
 const Email = () => <EmailGroup label="Email" placeholder="Enter your email..." comment="We will never give anyone else access to your email."/>;
 const Password = () => <PasswordGroup label="Password" placeholder="Enter your password"/>;

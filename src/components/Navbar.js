@@ -22,7 +22,7 @@ function CustomNavbar(props) {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    {props.navItems.map(item => <Nav.Link href={`/${item}`}>{item}</Nav.Link>)}
+                    {props.navItems.map(item => <Nav.Link href={`/${item.toLowerCase()}`}>{item}</Nav.Link>)}
                 </Nav>
                 <Nav className={getNavButtonContainerStyle(emailAuth)}>
                     {props.getNavButtons(emailAuth)}

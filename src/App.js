@@ -10,8 +10,9 @@ function App() {
     return (
         <Router>
             <Navbar/>
-            <PostsPage/>
             <Routes>
+                <Route exact path="/" element={<PostsPage />}></Route>
+                <Route exact path="/profile" element={<PostsPage />}></Route>
             </Routes>
         </Router>
     )
